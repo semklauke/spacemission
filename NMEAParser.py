@@ -22,9 +22,9 @@ class NMEAParser(object):
 		parseFuncName = 'p_' + sentence[1:3].upper() 
 		parseFunc = self.namespace.get(parseFuncName)
 		if not parseFunc and debug is 1:
-     		print("No implementation for sentence: %s" % sentence)
+			print("No implementation for sentence: %s" % sentence)
      	else if not parseFunc and debug is 2:
-     		raise NotImplementedError("No implementation for sentence: %s" % sentence)
+			raise NotImplementedError("No implementation for sentence: %s" % sentence)
   		else if parseFunc
 			parseFunc(sentence)
 
