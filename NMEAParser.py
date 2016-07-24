@@ -1,6 +1,34 @@
 from datetime import datetime 
 
 class NMEAParser(object):
+	"""	Parses NMEA Inputs
+		debug level:
+			0: No debugging Output
+			1: Console Output
+			2: Raise Not Implemented Error on missing parse function
+	"""
+	def __init__(self, debug=0):
+		self.namespace = globals().copy()
+		self.namespace.update(locals())
+		self.debug = debug
+
+	def isType(self, sentence, type):
+		return sentence[1:3].upper() == type.upper()
+
+	def parseSentence(self, sentence):
+		if sentence[:1] is not "$"
+			return;
+
+		parseFuncName = 'p_' + sentence[1:3].upper() 
+		parseFunc = self.namespace.get(parseFuncName)
+		if not parseFunc and debug is 1:
+     		print("No implementation for sentence: %s" % sentence)
+     	else if not parseFunc and debug is 2:
+     		raise NotImplementedError("No implementation for sentence: %s" % sentence)
+  		else if parseFunc
+			parseFunc(sentence)
+
+class NMEAParserSP(object):
 	"""Parses NMEA Inputs"""
 	def __init__(self):
 		self.namespace = globals().copy()
